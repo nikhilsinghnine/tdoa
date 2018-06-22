@@ -47,10 +47,13 @@ def findLocation(x,y,z):
         Rik[j] = Ri[j]-Rk[j]
         Rkj[j] = Rk[j]-Rj[j]
         Rkl[j] = Rk[j]-Rl[j]
+<<<<<<< HEAD
         #print '\nTrue Rij: '+str(Rij[j])
         #print 'True Rik: '+str(Rik[j])
         #print 'True Rkj: '+str(Rkj[j])
         #print 'True Rkl: '+str(Rkl[j])
+=======
+>>>>>>> dfa91a0ac5fea4153acb1e1313435e2a78e90238
 
         xji, yji, zji = xj-xi,yj-yi,zj-zi
         xki, yki, zki = xk-xi,yk-yi,zk-zi
@@ -78,6 +81,7 @@ def findLocation(x,y,z):
         sy[j] = I[j]*sz[j]+J[j]
         sx[j] = G[j]*sz[j]+H[j]
 
+<<<<<<< HEAD
         ri[j] = math.sqrt((sx[j]-xi)**2+(sy[j]-yi)**2+(sz[j]-zi)**2)
         rj[j] = math.sqrt((sx[j]-xj)**2+(sy[j]-yj)**2+(sz[j]-zj)**2)
         rk[j] = math.sqrt((sx[j]-xk)**2+(sy[j]-yk)**2+(sz[j]-zk)**2)
@@ -93,17 +97,25 @@ def findLocation(x,y,z):
         print 'Error Rkj: '+str(Rkj[j]-rkj[j])
         print 'Error Rkl: '+str(Rkl[j]-rkl[j])
 
+=======
+>>>>>>> dfa91a0ac5fea4153acb1e1313435e2a78e90238
     return sx, sy, sz
 
 if __name__ == '__main__':
 
+<<<<<<< HEAD
     #Objects's location
+=======
+>>>>>>> dfa91a0ac5fea4153acb1e1313435e2a78e90238
     x=[13970.04, 43271.75, 71300.97, 95219.61]      
     y=[-18557.80, -57444.36, -94639.05, -126379.45]
     z=[22270.68, 34057.40, 24218.86, 18483.85]
 
+<<<<<<< HEAD
 
     #Receivers' location
+=======
+>>>>>>> dfa91a0ac5fea4153acb1e1313435e2a78e90238
     array_X=[0.0, -25000.00, 23000.00, -101000.00, -2611.204, 1859.424, -169.088]#, 4642.943, 1826.389, 728.806, 4633.135
     array_Y=[0.0, -2315.226, 35000.213, -167000.00, 547.975, 4537.568, 2315.324]#, 5033.602, -64205.797, -57207.506, 5044.402
     array_Z=[0.0, 500.00, 45.00, -3000.00, 0.982, 6.256, 6.155]#, -0.916, -322.926, -254.013, 0.450
@@ -119,7 +131,10 @@ if __name__ == '__main__':
     #zi, zj, zk, zl= 0.0, 500.00, 45.00, -3000.00
 
     Ri, Rj, Rk, Rl, Rij, Rik, Rkj, Rkl= {},{},{},{},{},{},{},{}
+<<<<<<< HEAD
     ri, rj, rk, rl, rij, rik, rkj, rkl= {},{},{},{},{},{},{},{}
+=======
+>>>>>>> dfa91a0ac5fea4153acb1e1313435e2a78e90238
     A, B, C, D, E, F, G, H, I, J, K, L, M, N, O={},{},{},{},{},{},{},{}, {},{},{},{},{},{},{}
     sz, sy, sx={},{},{}
 
@@ -130,6 +145,7 @@ if __name__ == '__main__':
     element=[0]
     generateCombinations(array_X, array_Y, array_Z, 4)
     print 'Total number of combinations: '+str(len(subArrays_X))+'\n'
+<<<<<<< HEAD
     #print 'Combinations: '
     #for i in range(len(subArrays_X)):
     #    print 'X: '+str(subArrays_X[i])+'   Y:'+str(subArrays_Y[i])+'   Z:'+str(subArrays_Z[i])
@@ -139,6 +155,17 @@ if __name__ == '__main__':
     indices_X=subArrays_X[22]
     indices_Y=subArrays_Y[22]
     indices_Z=subArrays_Z[22]
+=======
+    print 'Combinations: '
+    for i in range(len(subArrays_X)):
+        print 'X: '+str(subArrays_X[i])+'   Y:'+str(subArrays_X[i])+'   Z:'+str(subArrays_Z[i])
+    X_receiver=[]
+    Y_receiver=[]
+    Z_receiver=[]
+    indices_X=subArrays_X[-1]
+    indices_Y=subArrays_Y[-1]
+    indices_Z=subArrays_Z[-1]
+>>>>>>> dfa91a0ac5fea4153acb1e1313435e2a78e90238
     for i,j,k in zip(indices_X, indices_Y, indices_Z):
         X_receiver.append(i)
         Y_receiver.append(j)
@@ -163,6 +190,7 @@ if __name__ == '__main__':
             temp=value
             array.append(temp)
     locations= numpy.array(array).reshape(3, len(location))
+<<<<<<< HEAD
 
     #print '\nTrue Positions:'
     #for i in range(4):
@@ -171,3 +199,7 @@ if __name__ == '__main__':
     print '\nError Positions:'
     for i in range(4):
         print (true_positions[:,i]-locations[:,i])
+=======
+    for i in range(4):
+        print (true_positions[:,i]-locations[:,i])#/true_positions[:,i]
+>>>>>>> dfa91a0ac5fea4153acb1e1313435e2a78e90238
