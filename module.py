@@ -1,5 +1,6 @@
 import numpy
 import math
+from matplotlib import pyplot
 
 
 def generateCombinations(array_X, array_Y, array_Z, r):
@@ -99,6 +100,16 @@ def findLocation(x,y,z):
 
     return sx, sy, sz
 
+def draw_plot(true, est):
+        pyplot.plot(true[0], true[1], 'bd', label='True position')
+        pyplot.plot(est[0], est[1], 'r+', label='Estimated position')
+        pyplot.legend(loc='upper right', numpoints=1)
+        pyplot.xlabel('X coordinate of target')
+        pyplot.ylabel('Y coordinate of target')
+        pyplot.title('TDOA Hyperbolic Localization')
+        pyplot.axis([-100000, 100000, -100000, 100000])
+        pyplot.show()
+
 if __name__ == '__main__':
 
     #Objects's location
@@ -180,10 +191,12 @@ if __name__ == '__main__':
             array.append(temp)
     locations= numpy.array(array).reshape(3, len(location))
 
-    #print '\nTrue Positions:'
-    #for i in range(4):
-    #    print (true_positions[:,i])
+    print '\nTrue Positions:'
+    for i in range(4):
+        print (true_positions[:,i][0])
 
     print '\nError Positions:'
     for i in range(4):
         print (true_positions[:,i]-locations[:,i])
+    for i in range(4):
+    	draw_plot(true_positions[:,i],locations[:,i])
